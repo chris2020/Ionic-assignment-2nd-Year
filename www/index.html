@@ -99,10 +99,29 @@
               </ion-header-bar>
 
               <!--This page will show how many calories have been consumed today-->
-              <ion-pane ng-controller="dailyCalories">
+              <ion-pane ng-controller="animalCtrl">
 
                   <ion-content>
+                  
+                  <ion-list>
+                  
+                      <ion-item ng-repeat="item in items" class="item-thumbnail-left" >
+                      
+                        <img ng-src="img/egg.jpg" />
+                        
+                       <div class="item item-button-right" style="margin-top: 25px; border: none;">
+                       
+                        Boiled Egg
+                        
+                            <button class="button button-large button-positive" >
+                              <i class="icon ion-ios-telephone"></i>
+                            </button>
 
+                      </div>
+                        
+                      </ion-item>
+                  
+                  </ion-list>
 
 
                  </ion-content><!--End ion-content-->

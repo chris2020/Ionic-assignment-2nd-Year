@@ -51,8 +51,15 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
           $urlRouterProvider.otherwise('/tab/home');
 
 });
-          
-          
+         
+
+christyApp.controller("animalCtrl", function($scope){
+
+
+    $scope.items = ["Puppy", "Kitten", "Piglet", "Calf", "Lamb", "Foal", "Cub"];
+
+
+});
           
 
 christyApp.run(function($ionicPlatform) 
