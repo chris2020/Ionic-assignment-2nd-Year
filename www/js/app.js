@@ -36,6 +36,16 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
                 controller: 'dailyCalories'
               }
             }
+          })
+          
+          .state('tab.input', {
+            url: '/input',
+            views: {
+              'input': {
+                templateUrl: 'input.html',
+                controller: 'dailyCalories'
+              }
+            }
           });
     
           $urlRouterProvider.otherwise('/tab/home');

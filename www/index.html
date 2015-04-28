@@ -42,12 +42,15 @@
               
                <!-- Tab 3: Input Page -->
               <ion-tab title="Input" icon="ion-android-add-circle" href="#/tab/input">
+              <ion-nav-view name="input">
+              </ion-nav-view>
               </ion-tab><!--End ion-tab-->
 
           </ion-tabs><!--End ion-tabs-->
           
       </script><!--End script for tabs.html-->
       
+      <!--First view for home page-->
       
       <script type="text/ng-template" id="home.html">
        
@@ -84,9 +87,9 @@
         
       </script><!--End script for home page-->
         
-        <!--Second view for list -->
+      <!--Second view for list page-->
         
-        <script type="text/ng-template" id="list.html">
+      <script type="text/ng-template" id="list.html">
         
             <ion-view>
 
@@ -96,7 +99,7 @@
               </ion-header-bar>
 
               <!--This page will show how many calories have been consumed today-->
-              <ion-pane>
+              <ion-pane ng-controller="dailyCalories">
 
                   <ion-content>
 
@@ -108,7 +111,33 @@
 
             </ion-view>
             
-        </script><!--End script for list page-->
+      </script><!--End script for list page-->
+      
+      <!--Third view for input page-->
+        
+      <script type="text/ng-template" id="input.html">
+        
+            <ion-view>
+
+              <!--Header bar is green, this is chosen as it's often considered a colour that means something is natural and healthy-->    
+              <ion-header-bar class="bar-balanced">
+                <h1 class="title">Customised Count</h1>
+              </ion-header-bar>
+
+              <!--This page will show how many calories have been consumed today-->
+              <ion-pane ng-controller="dailyCalories">
+
+                  <ion-content>
+
+
+
+                 </ion-content><!--End ion-content-->
+
+              </ion-pane><!--End ion-pane-->
+
+            </ion-view>
+            
+      </script><!--End script for input page-->
       
   </body><!--End Body-->
     
