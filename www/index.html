@@ -101,20 +101,21 @@
               <!--This page will show how many calories have been consumed today-->
               <ion-pane ng-controller="animalCtrl">
 
-                  <ion-content>
+                  <ion-content><!--Will allow the page to scroll down for list gets too big for one screen-->
                   
-                  <ion-list>
+                  <ion-list><!--Creates list-->
                   
+                      <!--Conditions for each item, ng-repeat used to reduce amount of code needed, class makes picture the size of thumbnail and aligns it left-->
                       <ion-item ng-repeat="item in items" class="item-thumbnail-left" >
                       
-                        <img ng-src="img/egg.jpg" />
+                       <img ng-src="{{item.thumbnail}}"/>
                         
-                       <div class="item item-button-right" style="margin-top: 25px; border: none;">
+                       <div class="item item-button-right" style="margin-top: 15px; border: none;">
                        
-                        Boiled Egg
+                        {{item.text}}
                         
                             <button class="button button-large button-positive" >
-                              <i class="icon ion-ios-telephone"></i>
+                              {{item.value}}
                             </button>
 
                       </div>

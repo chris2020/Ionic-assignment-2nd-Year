@@ -56,7 +56,7 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
 christyApp.controller("animalCtrl", function($scope){
 
 
-    $scope.items = ["Puppy", "Kitten", "Piglet", "Calf", "Lamb", "Foal", "Cub"];
+    $scope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: "80"}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: "100"}, {thumbnail: "img/banana.jpg",text: "Banana", value: "90"},                         {thumbnail: "img/apple.jpg",text: "Apple", value: "50"}, {thumbnail: "img/potato.jpg",text: "Potato", value: "110"}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: "50"}];
 
 
 });
