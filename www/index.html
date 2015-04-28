@@ -73,7 +73,7 @@
                       <h1>{{dayCal}}</h1><!--Displays number of calories consumed-->
                       
                       <!--Button to reset calorie counter to 0-->
-                      <button  class="button button-balanced" ng-click="dayCal = 0">
+                      <button  class="button button-balanced" ng-click="reset()">
                           Reset
                       </button>
 
@@ -99,7 +99,7 @@
               </ion-header-bar>
 
               <!--This page will show how many calories have been consumed today-->
-              <ion-pane ng-controller="animalCtrl">
+              <ion-pane ng-controller="dailyCalories">
 
                   <ion-content><!--Will allow the page to scroll down for list gets too big for one screen-->
                   
@@ -114,7 +114,7 @@
                        
                         {{item.text}}
                         
-                            <button class="button button-large button-positive" >
+                            <button class="button button-large button-positive" ng-click="addCal(item.value)">
                               {{item.value}}
                             </button>
 

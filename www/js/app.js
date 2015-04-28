@@ -1,9 +1,29 @@
 //storing in variable for better readability
 var christyApp = angular.module('calorific', ['ionic']);
 
-christyApp.controller('dailyCalories', function($scope){
-
-    $scope.dayCal = 100;
+christyApp.controller('dailyCalories', function($rootScope, $scope){
+ 
+    $scope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: 80}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: 100}, {thumbnail: "img/banana.jpg",text: "Banana", value: 90},                         {thumbnail: "img/apple.jpg",text: "Apple", value: 50}, {thumbnail: "img/potato.jpg",text: "Potato", value: 110}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: 50}];
+    
+    
+    $scope.addCal = function(digit){
+        
+        $rootScope.dayCal += digit;
+        
+        console.log("Function Fired");
+        
+        console.log(digit);
+        //console.log($scope.dayCal);
+        //console.log($scope.items[0].value); 
+         
+    }//End addCal
+    
+    //Function to reset calorie counter to 0
+    $scope.reset = function(){
+    
+        $rootScope.dayCal = 0;
+    
+    }//End reset function
 
 });
 
@@ -51,17 +71,7 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
           $urlRouterProvider.otherwise('/tab/home');
 
 });
-         
-
-christyApp.controller("animalCtrl", function($scope){
-
-
-    $scope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: "80"}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: "100"}, {thumbnail: "img/banana.jpg",text: "Banana", value: "90"},                         {thumbnail: "img/apple.jpg",text: "Apple", value: "50"}, {thumbnail: "img/potato.jpg",text: "Potato", value: "110"}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: "50"}];
-
-
-});
-          
-
+                   
 christyApp.run(function($ionicPlatform) 
 {
     
