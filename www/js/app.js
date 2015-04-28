@@ -7,6 +7,44 @@ christyApp.controller('dailyCalories', function($scope){
 
 });
 
+christyApp.config(function($stateProvider, $urlRouterProvider) 
+{
+    
+          $stateProvider
+          
+          .state('tab', {
+            url: '/tab',
+            abstract: true,
+            templateUrl: "tabs.html"
+          })
+          
+          .state('tab.home', {
+            url: '/home',
+            views: {
+              'home': {
+                templateUrl: 'home.html',
+                controller: 'dailyCalories'
+              }
+            }
+          })
+          
+          .state('tab.list', {
+            url: '/list',
+            views: {
+              'list': {
+                templateUrl: 'list.html',
+                controller: 'dailyCalories'
+              }
+            }
+          });
+    
+          $urlRouterProvider.otherwise('/tab/home');
+
+});
+          
+          
+          
+
 christyApp.run(function($ionicPlatform) 
 {
     
