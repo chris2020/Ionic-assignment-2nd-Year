@@ -1,6 +1,12 @@
 //storing in variable for better readability
 var christyApp = angular.module('calorific', ['ionic']);
 
+christyApp.controller('dailyCalories', function($scope){
+
+    $scope.dayCal = 100;
+
+});
+
 christyApp.run(function($ionicPlatform) 
 {
     
