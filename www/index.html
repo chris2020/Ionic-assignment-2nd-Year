@@ -51,8 +51,7 @@
           
       </script><!--End script for tabs.html-->
       
-      <!--First view for home page-->
-      
+      <!--First view for home page--> 
       <script type="text/ng-template" id="home.html">
        
         <ion-view>
@@ -66,21 +65,52 @@
           <ion-pane  ng-controller="dailyCalories" >
 
               <ion-content>
+              
+                   <!--Div will display a warning when calorie intake goes above or equals 2000-->
+                   <div align=center style="margin-top: 10px" ng-show="dayCal >= 2000">
+                  
+                    <p style="font-size: 25px; color: red" >Warning! High Calorie Intake</p><!--Displays number of calories consumed-->
+                  
+                  </div>
 
-                  <div align=center><!--Centered div displaying content to user-->
+                  <!--Centered div displaying content to user-->
+                  <div align=center style="margin-top: 100px">
 
-                       <h1>Calories you've consumed</h1>
-
-                      <h1>{{dayCal}}</h1><!--Displays number of calories consumed-->
-                      
-                      <!--Button to reset calorie counter to 0-->
-                      <button  class="button button-balanced" ng-click="reset()">
-                          Reset
-                      </button>
+                        <p style="font-size: 40px">You've Consumed</p>
 
                   </div><!--End Div-->
+                  
+                  <!--Normal display div for calorie counter-->
+                  <div align=center style="margin-top: 50px" ng-show="dayCal < 2000">
+                  
+                    <p style="font-size: 50px" >{{dayCal}}</p><!--Displays number of calories consumed-->
+                  
+                  </div>
+                  
+                  <!--Div turns the colour of calorie counter red when calorie intake goes over or is equal to 2000-->
+                  <div align=center style="margin-top: 50px" ng-show="dayCal >= 2000">
+                  
+                    <!--Displays number in red and makes text bigger than normal-->
+                    <p style="font-size: 60px; color: red" >{{dayCal}}</p>
+                  
+                  </div>
+                  
+                  <!--Centered div displaying content to user-->
+                  <div align=center style="margin-top: 50px; font-size: 20px">
 
-                <h1>{{name}}</h1>
+                       <p style="font-size: 40px">Calories Today</p>
+
+                  </div><!--End Div-->
+                  
+                  <!--Div containing button which resets counter to 0-->
+                  <div align=center class="padding-left padding-right" style="margin-top: 50px">
+                  
+                      <!--Button to reset calorie counter to 0-->
+                      <button class="button button-block button-balanced" ng-click="reset()">
+                          Reset
+                      </button>
+                  
+                  </div>
 
              </ion-content><!--End ion-content-->
 
@@ -90,8 +120,7 @@
         
       </script><!--End script for home page-->
         
-      <!--Second view for list page-->
-        
+      <!--Second view for list page-->       
       <script type="text/ng-template" id="list.html">
         
             <ion-view>
@@ -144,7 +173,7 @@
 
               <!--Header bar is green, this is chosen as it's often considered a colour that means something is natural and healthy-->    
               <ion-header-bar class="bar-balanced">
-                <h1 class="title">Customised Count</h1>
+                <h1 class="title">Custom Food</h1>
               </ion-header-bar>
 
               <!--This page will show how many calories have been consumed today-->
@@ -152,7 +181,7 @@
 
                   <ion-content>
                   
-                  <h2 align="center">Add your own calories here</h2>
+                  <h3 align="center" style="margin-top: 20px">Customised Meals</h3>
                   
                   <div class="list">
                       <label class="item item-input">
@@ -166,7 +195,7 @@
                   <!--Button allows you to put in your own value for foods not in the list-->
                   <div class="padding-left padding-right">
                      <button class="button button-block button-positive" ng-click="addInput(manualCal)">
-                      Add
+                      Add to daily intake
                     </button>
                   </div>
                   

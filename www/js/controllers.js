@@ -15,7 +15,7 @@ christyApp.controller('dailyCalories', function($rootScope, $scope){
     }//End if
     
    //Array of objects which can be viewed from the list page. Consists of picture of food, name of food and the amount of calories in that food
-   $rootScope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: 80}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: 100}, {thumbnail: "img/banana.jpg",text: "Banana", value: 90},                            {thumbnail: "img/apple.jpg",text: "Apple", value: 50}, {thumbnail: "img/potato.jpg",text: "Potato", value: 110}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: 50}];
+   $rootScope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: 80}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: 100}, {thumbnail: "img/banana.jpg",text: "Banana", value: 90},                            {thumbnail: "img/apple.jpg",text: "Apple", value: 50}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: 50}, {thumbnail: "img/potato.jpg",text: "Potato", value: 90}];
     
     //This function adds the value of a particular food when button in list page is clicked to the overall calorie counter $rootScope.dayCal
     //The value from the object is passed in and called digit
@@ -51,17 +51,19 @@ christyApp.controller('inputCtrl', function($rootScope, $scope){
         //Add user input overall calorie intake
         $rootScope.dayCal += manualCal;
         
+        //Store value of $rootScope.dayCal into local storage
         window.localStorage['name'] =  $rootScope.dayCal;
         
     };//end function addInput
     
     $scope.pushToArray = function(manualCal, foodName){
     
-        if(manualCal != null && foodName != null)
+        //If manualCal and foodName have values
+        if(manualCal != 0 && foodName != '')
         {
-        
-            $rootScope.items.push({thumbnail: "img/carrot.jpg",text: foodName, value: manualCal});
-        
+            //Push a default user image and the values entered by the user to the items array
+            $rootScope.items.push({thumbnail: "img/user.jpg", text: foodName, value: manualCal});
+            
         }
         else
         {
