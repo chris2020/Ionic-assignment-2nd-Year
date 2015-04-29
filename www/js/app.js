@@ -1,43 +1,20 @@
 //storing in variable for better readability
 var christyApp = angular.module('calorific', ['ionic']);
 
-christyApp.controller('dailyCalories', function($rootScope, $scope){
- 
-    $scope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: 80}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: 100}, {thumbnail: "img/banana.jpg",text: "Banana", value: 90},                         {thumbnail: "img/apple.jpg",text: "Apple", value: 50}, {thumbnail: "img/potato.jpg",text: "Potato", value: 110}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: 50}];
-    
-    
-    $scope.addCal = function(digit){
-        
-        $rootScope.dayCal += digit;
-        
-        console.log("Function Fired");
-        
-        console.log(digit);
-        //console.log($scope.dayCal);
-        //console.log($scope.items[0].value); 
-         
-    }//End addCal
-    
-    //Function to reset calorie counter to 0
-    $scope.reset = function(){
-    
-        $rootScope.dayCal = 0;
-    
-    }//End reset function
-
-});
-
+//Config function used to set up routing in app
 christyApp.config(function($stateProvider, $urlRouterProvider) 
 {
-    
+          //all states for app
           $stateProvider
           
+          //Parent state for app, houses the tabs fro each page 
           .state('tab', {
             url: '/tab',
             abstract: true,
             templateUrl: "tabs.html"
           })
           
+          //Child states for each view app has
           .state('tab.home', {
             url: '/home',
             views: {
@@ -63,17 +40,20 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
             views: {
               'input': {
                 templateUrl: 'input.html',
-                controller: 'dailyCalories'
+                controller: 'inputCtrl'
               }
             }
           });
     
+          //Defaults back to home page
           $urlRouterProvider.otherwise('/tab/home');
 
-});
+});//End config()
+
+
                    
 christyApp.run(function($ionicPlatform) 
-{
+  {
     
   $ionicPlatform.ready(function() 
   {
@@ -91,4 +71,4 @@ christyApp.run(function($ionicPlatform)
       
   });
     
-});
+});//End run()

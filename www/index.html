@@ -16,6 +16,7 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+      <script src="js/controllers.js"></script>
   </head>
     
   <body>
@@ -78,6 +79,8 @@
                       </button>
 
                   </div><!--End Div-->
+
+                <h1>{{name}}</h1>
 
              </ion-content><!--End ion-content-->
 
@@ -145,7 +148,7 @@
               </ion-header-bar>
 
               <!--This page will show how many calories have been consumed today-->
-              <ion-pane ng-controller="dailyCalories">
+              <ion-pane ng-controller="inputCtrl">
 
                   <ion-content>
                   
@@ -153,11 +156,24 @@
                   
                   <div class="list">
                       <label class="item item-input">
-                        <input type="text" placeholder="First Name">
+                        <input type="text" placeholder="Name of food" ng-model="foodName">
                       </label>
                       <label class="item item-input">
-                        <input type="number" placeholder="calories">
+                        <input type="number" placeholder="calories" ng-model="manualCal">
                       </label>
+                  </div>
+                  
+                  <!--Button allows you to put in your own value for foods not in the list-->
+                  <div class="padding-left padding-right">
+                     <button class="button button-block button-positive" ng-click="addInput(manualCal)">
+                      Add
+                    </button>
+                  </div>
+                  
+                  <div class="padding-left padding-right">
+                     <button class="button button-block button-positive" ng-click="pushToArray(manualCal, foodName)">
+                      Save to list
+                    </button>
                   </div>
                   
                  </ion-content><!--End ion-content-->
