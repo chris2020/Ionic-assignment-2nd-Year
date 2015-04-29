@@ -14,17 +14,15 @@ christyApp.controller('dailyCalories', function($rootScope, $scope){
          
     }//End if
     
-   //Array of objects which can be viewed from the list page. Consists of picture of food, name of food and the amount of calories in that food
-   $rootScope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: 80}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: 100}, {thumbnail: "img/banana.jpg",text: "Banana", value: 90},                            {thumbnail: "img/apple.jpg",text: "Apple", value: 50}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: 50}, {thumbnail: "img/potato.jpg",text: "Potato", value: 90}];
-    
+    //Array of objects which can be viewed from the list page. Consists of picture of food, name of food and the amount of calories in that food
+    $rootScope.items = [{thumbnail: "img/egg.jpg", text: "Boiled Egg", value: 80}, {thumbnail: "img/brownBread.jpg",text: "Brown Bread", value: 100}, {thumbnail: "img/banana.jpg",text: "Banana", value: 90},                            {thumbnail: "img/apple.jpg",text: "Apple", value: 50}, {thumbnail: "img/carrot.jpg",text: "Carrot", value: 50}, {thumbnail: "img/potato.jpg",text: "Potato", value: 90}];
+     
     //This function adds the value of a particular food when button in list page is clicked to the overall calorie counter $rootScope.dayCal
     //The value from the object is passed in and called digit
     $scope.addCal = function(digit){
         
         //Add value of food to the the overall calorie counter
         $rootScope.dayCal += digit;
-        
-        console.log($rootScope.dayCal);
         
         window.localStorage['name'] =  $rootScope.dayCal;
          

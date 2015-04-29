@@ -11,38 +11,44 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
+    <!-- path to app.js file -->
     <script src="js/app.js"></script>
-      <script src="js/controllers.js"></script>
+      
+    <!-- path to controllers.js file -->  
+    <script src="js/controllers.js"></script>
   </head>
     
   <body>
       
+      <!--ion-nav-view tags used to keept track of the users navigation history-->
       <ion-nav-view>
 	  </ion-nav-view>
+      
+      <!--This is the parent template which handles the tab navigation-->
      
+      <!--id for tab template is set-->
       <script type="text/ng-template" id="tabs.html">
       
+          <!--Tabs have icons only in them-->  
           <ion-tabs class="tabs-stable tabs-icon-only">
 
+              <!--Android icons used as to give the app a more android feel-->
+              <!--Tab naviagtion is set below-->
+
               <!-- Tab 1: Home Page -->
-              <!--Android Home icon used as trying to give the app a more android feel-->
-              <ion-tab title="Home" icon="ion-android-home" href="#/tab/home">
+              <ion-tab title="Home" icon="ion-android-home" href="#/tab/home"><!--Home(house) icon used for home tab-->
               <ion-nav-view name="home">
               </ion-nav-view>
               </ion-tab><!--End ion-tab-->
 
               <!-- Tab 2: List Page -->
-              <ion-tab title="List" icon="ion-android-list" href="#/tab/list">
+              <ion-tab title="List" icon="ion-android-list" href="#/tab/list"><!--List icon used for list tab-->
               <ion-nav-view name="list">
               </ion-nav-view>
               </ion-tab><!--End ion-tab-->
               
                <!-- Tab 3: Input Page -->
-              <ion-tab title="Input" icon="ion-android-add-circle" href="#/tab/input">
+              <ion-tab title="Input" icon="ion-android-add-circle" href="#/tab/input"><!--Plus icon used for input tab, can add new items to your list from this tab-->
               <ion-nav-view name="input">
               </ion-nav-view>
               </ion-tab><!--End ion-tab-->
@@ -51,9 +57,15 @@
           
       </script><!--End script for tabs.html-->
       
-      <!--First view for home page--> 
+      <!--3 child templates are below-->
+      
+      <!--First template is home and displays the current calorie count and a reset button which turns the calorie count to 0. If calories reach 2000 or above a warning message is dispalyed
+          and colour of text with number of calories turns red and it's size is increased-->
+      
+      <!--id set for home page--> 
       <script type="text/ng-template" id="home.html">
        
+        <!--View for home page-->
         <ion-view>
                 
           <!--Header bar is green, this is chosen as it's often considered a colour that means something is natural and healthy-->    
@@ -62,8 +74,10 @@
           </ion-header-bar>
 
           <!--This page will show how many calories have been consumed today-->
+          <!--controller "dailyCalories" is used in this view-->
           <ion-pane  ng-controller="dailyCalories" >
-
+                
+              <!--All viewable page content within here-->    
               <ion-content>
               
                    <!--Div will display a warning when calorie intake goes above or equals 2000-->
@@ -71,11 +85,12 @@
                   
                     <p style="font-size: 25px; color: red" >Warning! High Calorie Intake</p><!--Displays number of calories consumed-->
                   
-                  </div>
+                  </div><!--End div-->
 
                   <!--Centered div displaying content to user-->
                   <div align=center style="margin-top: 100px">
 
+                        <!--Styled text with message to user-->
                         <p style="font-size: 40px">You've Consumed</p>
 
                   </div><!--End Div-->
@@ -85,7 +100,7 @@
                   
                     <p style="font-size: 50px" >{{dayCal}}</p><!--Displays number of calories consumed-->
                   
-                  </div>
+                  </div><!--End Div-->
                   
                   <!--Div turns the colour of calorie counter red when calorie intake goes over or is equal to 2000-->
                   <div align=center style="margin-top: 50px" ng-show="dayCal >= 2000">
@@ -93,11 +108,12 @@
                     <!--Displays number in red and makes text bigger than normal-->
                     <p style="font-size: 60px; color: red" >{{dayCal}}</p>
                   
-                  </div>
+                  </div><!--End Div-->
                   
                   <!--Centered div displaying content to user-->
                   <div align=center style="margin-top: 50px; font-size: 20px">
 
+                       <!--Styled text with message to user-->
                        <p style="font-size: 40px">Calories Today</p>
 
                   </div><!--End Div-->
@@ -110,19 +126,22 @@
                           Reset
                       </button>
                   
-                  </div>
+                  </div><!--End Div-->
 
              </ion-content><!--End ion-content-->
 
           </ion-pane><!--End ion-pane-->
           
-        </ion-view>
+        </ion-view><!--End view-->
         
       </script><!--End script for home page-->
+      
+      <!--This template displays a list with each item in the list displaying a thumbnail, the name of the food and a button containing the calorie value of food-->
         
-      <!--Second view for list page-->       
+      <!--id set for list page-->       
       <script type="text/ng-template" id="list.html">
         
+            <!--View for list page-->
             <ion-view>
 
               <!--Header bar is green, this is chosen as it's often considered a colour that means something is natural and healthy-->    
@@ -135,40 +154,51 @@
 
                   <ion-content><!--Will allow the page to scroll down for list gets too big for one screen-->
                   
-                  <ion-list><!--Creates list-->
+                  <!--Each item in list has a thumbnail picture, name of the food and a button which has the number of calories in that food--> 
+                  <ion-list>
                   
                       <!--Conditions for each item, ng-repeat used to reduce amount of code needed, class makes picture the size of thumbnail and aligns it left-->
                       <ion-item ng-repeat="item in items" class="item-thumbnail-left" >
                       
+                       <!--Displays the required image from the javascript object-->
                        <img ng-src="{{item.thumbnail}}"/>
                         
+                       <!--Div stores the name of food and the button, it has margin from top and border removed for cleaner interface-->
                        <div class="item item-button-right" style="margin-top: 15px; border: none;">
                        
+                        <!--Diplays the name of the food-->
                         {{item.text}}
                         
+                            <!--Button which displays the calorie value of food and can be clicked to add the value to the global calorie counter-->
+                            <!--ng-click has a function addCal and passes the value of each food-->
                             <button class="button button-large button-positive" ng-click="addCal(item.value)">
+                               
+                              <!--Displays the value of food on the button-->
                               {{item.value}}
+                              
                             </button>
 
-                      </div>
+                      </div><!--End Div-->
                         
-                      </ion-item>
+                      </ion-item><!--End ion-item-->
                   
-                  </ion-list>
-
+                   </ion-list><!--End ion-list-->
 
                  </ion-content><!--End ion-content-->
 
               </ion-pane><!--End ion-pane-->
 
-            </ion-view>
+            </ion-view><!--End ion-view-->
             
       </script><!--End script for list page-->
       
-      <!--Third view for input page-->
-        
+      <!--This template has a form with inputs for custom food names and number of calories user wants. Page has 2 buttons, 
+          one for adding a custom number of calories and one to add saving customs food into the list-->
+      
+      <!--id set for input page-->   
       <script type="text/ng-template" id="input.html">
         
+             <!--View for input page-->
             <ion-view>
 
               <!--Header bar is green, this is chosen as it's often considered a colour that means something is natural and healthy-->    
@@ -179,37 +209,64 @@
               <!--This page will show how many calories have been consumed today-->
               <ion-pane ng-controller="inputCtrl">
 
+                  <!--All viewable page content within here--> 
                   <ion-content>
                   
+                  <!--Styled prompt for user-->
                   <h3 align="center" style="margin-top: 20px">Customised Meals</h3>
                   
+                  <!--List of labels and input types-->
                   <div class="list">
+                  
+                      <!--Label containing input for text-->
                       <label class="item item-input">
+                        
+                        <!--Input displays a placeholder prompting user and stores text into variable foodName-->
                         <input type="text" placeholder="Name of food" ng-model="foodName">
-                      </label>
+                        
+                      </label><!--End label-->
+                      
+                      <!--Label containing input for number-->
                       <label class="item item-input">
+                        
+                        <!--Input displays a placeholder prompting user and stores a number into variable manualCal-->
                         <input type="number" placeholder="calories" ng-model="manualCal">
-                      </label>
-                  </div>
+                        
+                      </label><!--End label-->
+                      
+                  </div><!--End div-->
                   
-                  <!--Button allows you to put in your own value for foods not in the list-->
+                  <!--Div containing input for number-->
                   <div class="padding-left padding-right">
+                    
+                     <!--Button passes number entered into addInput() function-->
                      <button class="button button-block button-positive" ng-click="addInput(manualCal)">
-                      Add to daily intake
+                     
+                      <!--Text that appears on button-->
+                      Add to Daily Intake
+                      
                     </button>
-                  </div>
+                    
+                  </div><!--End div-->
                   
+                   <!--Div containing input for text-->
                   <div class="padding-left padding-right">
+                  
+                     <!--Button passes number and food name into pushToArray() function-->
                      <button class="button button-block button-positive" ng-click="pushToArray(manualCal, foodName)">
+                     
+                      <!--Text that appears on save button-->
                       Save to list
+                      
                     </button>
-                  </div>
+                    
+                  </div><!--End div-->
                   
                  </ion-content><!--End ion-content-->
 
               </ion-pane><!--End ion-pane-->
 
-            </ion-view>
+            </ion-view><!--End ion-view-->
             
       </script><!--End script for input page-->
       
