@@ -1,5 +1,7 @@
 # Mobile Application Development Project 
 
+Project is on GitHub at https://github.com/chris2020/ionic-assignment
+
 
 			Project Contents
         		****************
