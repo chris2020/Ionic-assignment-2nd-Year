@@ -4,7 +4,7 @@ Project is on GitHub at https://github.com/chris2020/ionic-assignment
 
 
 			Project Contents
-        		****************
+        		================
 
 Mobile App consists of 1 HTML file called index.html which is divided up into 3 views using tabs to select 
 the view you want.
@@ -14,21 +14,21 @@ There are 2 javascript files, app.js and controllers.js
 There is an image folder called img which houses the images needed for the app.
 
 			Additional Details
-			******************
+			==================
 app.js
-======
+
 
 app.js has the module, the configuration for the views and the run function. In the configuration function there 
 is a parent state for the tabs and 3 child states for each view. $urlRouterProvider is used to set a default state.
 
 controllers.js
-==============
+
 
 There are 3 controllers in this file, one for each view in the HTML file. They all get passed 2 services to help
 control data in the app, $rootScope and $scope.
 
 index.html
-==========
+
 
 Displays 3 views to users who then use tabs to navigate between them. Users can interact with each view.
 
@@ -39,6 +39,7 @@ the calorie counter.
 
 In the input view, users can enter the name and calories of new food. There are 2 buttons, one adds the calorie
 value to the counter and the other allows you to save new food to the list page (temporary storage currently).
+********************************************************************************************************************
 
 
  			Backend Features of App
