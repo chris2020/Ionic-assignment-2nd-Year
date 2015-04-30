@@ -30,7 +30,7 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
             views: {
               'list': {
                 templateUrl: 'list.html',
-                controller: 'dailyCalories'
+                controller: 'listCtrl'
               }
             }
           })
@@ -50,8 +50,6 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
 
 });//End config()
 
-
-                   
 christyApp.run(function($ionicPlatform) 
   {
     
