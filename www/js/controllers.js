@@ -10,7 +10,7 @@
 */
 christyApp.controller('dailyCalories', function($rootScope, $scope){
     
-    //At start up retrieve previous information about calories and store in $rrotScope.dayCal
+    //At start up retrieve previous information about calories and store in $rootScope.dayCal
     //Must parse the local storage to in int or counting won't work
     $rootScope.dayCal =  parseInt(window.localStorage['name']);
     
