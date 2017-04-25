@@ -7,7 +7,7 @@ christyApp.config(function($stateProvider, $urlRouterProvider)
           //all states for app
           $stateProvider
           
-          //Parent state for app, houses the tabs fro each page 
+          //Parent state for app, houses the tabs for each page 
           .state('tab', {
             url: '/tab',
             abstract: true,
